@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.Window
+
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,9 +19,14 @@ import com.darleyleal.motivation.R
 import com.darleyleal.motivation.Infrastructure.SecurityPreferences
 import com.darleyleal.motivation.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), OnClickListener {
+class MainActivity() : AppCompatActivity(), OnClickListener, Parcelable {
     private lateinit var binding: ActivityMainBinding
     private var categoryId = MotivationConstants.FILTER.ALL
+
+    // Implementação do Android Studio ->
+    constructor(parcel: Parcel) : this() {
+        categoryId = parcel.readInt()
+    }
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,6 +130,26 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             val window: Window = window
             window.statusBarColor = Color.parseColor("#5F1049")
             window.navigationBarColor = Color.parseColor("#Ffffff")
+        }
+    }
+
+
+    // Implementações do Android Studio ->
+    override fun describeContents(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        TODO("Not yet implemented")
+    }
+
+    companion object CREATOR : Parcelable.Creator<MainActivity> {
+        override fun createFromParcel(parcel: Parcel): MainActivity {
+            return MainActivity(parcel)
+        }
+
+        override fun newArray(size: Int): Array<MainActivity?> {
+            return arrayOfNulls(size)
         }
     }
 }
