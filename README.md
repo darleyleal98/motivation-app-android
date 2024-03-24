@@ -10,7 +10,10 @@
 </p>
    <img src="https://github.com/darleyleal98/motivation-app-android/assets/132721098/608f8030-a311-440c-9c0a-f35dbe52f8f8" </img>
    <br>
-<p>Tela home do aplicativo onde as frases são mostradas de acordo a categoria escolhida</p>
+   <br>
+<p>
+   Tela home do aplicativo onde as frases são mostradas de acordo a categoria escolhida:
+</p>
 <br>
 <img src="https://github.com/darleyleal98/motivation-app-android/assets/132721098/292d3323-ce3c-48bb-ab23-e3141220c7c2)" </img>
 
